@@ -9,6 +9,14 @@ app = Flask(__name__, template_folder='templates')
 list_Json = {'id': 0, 'lat': 0.00000, 'lon': 0.00000}
 
 @app.route("/")
+def login():
+  return render_template('login.html')
+
+@app.route("/cadastro")
+def cadastro():
+  return render_template('cadastro.html')  
+
+@app.route("/home")
 def home():
     global list_Json
     busLocalization = Lastupdate.readLastUpdate()
@@ -20,7 +28,8 @@ def routers_post():
     global list_Json
     list_Json = json.loads(request.data)
     ponto_de_parada = Routers().decodeRouter(list_Json)
-    Lastupdate.saveLastUpdate(list_Json, ponto_de_parada)
+    Lastupdate.saveLastUpdate(list_Json)
+    Lastupdate.saveLastPoint(ponto_de_parada)
     return json.dumps(list_Json)
 
 @app.route("/routers", methods=['GET'])

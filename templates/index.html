@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Mapa do ônibus</title>
+  <style>
+   body{
+    background-color: rgb(2, 2, 49);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
+   h2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    transform: translate(23%, 30%);
+    
+   }
+
+  </style>
 </head>
 <body>
-<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{lat}},%20{{lon}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">how to embed google map in wordpress</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
-</style></div></div>
+<h1>Localização do ônibus</h1>
+<div class="mapouter">
+  <div class="gmap_canvas">
+
+    <iframe 
+      width="600" 
+      height="500" 
+      id="gmap_canvas" src="https://maps.google.com/maps?q={{lat}},%20{{lon}}&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+      frameborder="0" 
+      scrolling="no" 
+      marginheight="0" 
+      marginwidth="0">
+  </iframe>
+
+  <a href="https://fmovies-online.net"></a>
+  <br>
+
+  <style>
+    .mapouter{position:relative;
+              text-align:right;
+              height:500px;
+              width:600px;}
+  </style>
+
+  <a href="https://www.embedgooglemap.net">how to embed google map in wordpress</a>
+
+  <style>
+    .gmap_canvas {overflow:hidden;
+                  background:none!important;
+                  height:500px;
+                  width:600px;}
+  </style>
+
+</div>
+</div>
+
 
 <div>
+  
   <h2>Visto por último na parada: {{last_point}}</h2>
+  
 </div>
 </body>
 </html>

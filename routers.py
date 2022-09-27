@@ -1,3 +1,4 @@
+import time
 class Routers ():
 
   #formatação do dicionario {id : ["nome da parada", lat, lon]}
@@ -9,5 +10,6 @@ class Routers ():
   
       if (dicionario['lat'] <= self.list_routers[id][1] + 0.00006 and dicionario['lat'] >= self.list_routers[id][1] - 0.00006) and (dicionario['lon'] <= self.list_routers[id][2] + 0.00005 and dicionario['lon'] >= self.list_routers[id][2] - 0.00005):
         print(self.list_routers[id][0])
-        return self.list_routers[id][0]
+        hora = int(time.strftime("%H")) - 3
+        return self.list_routers[id][0] + " " + time.strftime('%A %B, %d %Y {}:%M:%S'.format(hora))
       

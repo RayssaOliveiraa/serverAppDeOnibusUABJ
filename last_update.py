@@ -3,11 +3,18 @@ import ast
 class Lastupdate():
   
   @staticmethod
-  def saveLastUpdate(data, ponto):
+  def saveLastUpdate(data):
     f = open("SaveFiles/lastUpdate.bin", "wb")
-    f.write("{}\n{}".format(data, ponto).encode())
+    f.write("{}".format(data).encode())
     f.close()
     
+  @staticmethod
+  def saveLastPoint(ponto):
+    if ponto != None:
+      f = open("SaveFiles/lastPoint.bin", "wb")
+      f.write("{}".format(ponto).encode())
+      f.close()
+      
   @staticmethod
   def readLastUpdate():
     try:
@@ -22,8 +29,10 @@ class Lastupdate():
     
   @staticmethod
   def readLastPoint():
-    f = open("SaveFiles/lastUpdate.bin", "rb")
-    f.readline()
-    data = f.readline().decode()
-    f.close()
-    return data
+    try:
+      f = open("SaveFiles/lastPoint.bin", "rb")
+      data = f.readline().decode()
+      f.close()
+      return data
+    except:
+      print("Ocorreu algum erro")
